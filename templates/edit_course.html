@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Course</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Edit Course</h1>
+        <a href="{{ url_for('manage_courses') }}" class="dashboard-btn">Back to Courses</a>
+    </header>
+    <div class="container">
+        <div class="content">
+            <h2 class="section-title">Update Course Details</h2>
+            <form action="{{ url_for('edit_course', courseid=course.courseid) }}" method="POST" class="form">
+                <div class="form-group">
+                    <label for="coursename">Course Name</label>
+                    <input type="text" id="coursename" name="coursename" 
+                           placeholder="Enter course name"
+                           value="{{ form_data.get('coursename', course.coursename) }}"
+                           maxlength="100" required>
+                    {% if errors.get('coursename') %}
+                        <span class="error">{{ errors['coursename'] }}</span>
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    <label for="credits">Credits</label>
+                    <input type="number" id="credits" name="credits" 
+                           placeholder="Enter credits"
+                           value="{{ form_data.get('credits', course.credits) }}" 
+                           min="1" max="10" required>
+                    {% if errors.get('credits') %}
+                        <span class="error">{{ errors['credits'] }}</span>
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    <label for="coursetype">Course Type</label>
+                    <select id="coursetype" name="coursetype" required style="width: 100%; padding: 0.5rem; font-size: 1.2rem;">
+                        <option value="">Select Course Type</option>
+                        <option value="mandatory" {% if course.get('coursetype') == 'mandatory' %}selected{% endif %}>Mandatory</option>
+                        <option value="optional" {% if course.get('coursetype') == 'optional' %}selected{% endif %}>Optional</option>
+                    </select>
+                    {% if errors.coursetype %}
+                        <p class="error">{{ errors.coursetype }}</p>
+                    {% endif %}
+                </div>
+                
+                {% if errors.get('general') %}
+                    <div class="error">
+                        {{ errors['general'] }}
+                    </div>
+                {% endif %}
+                <button type="submit" class="button">Save Changes</button>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 Student & Course Management System. All rights reserved.</p>
+    </footer>
+</body>
+</html>

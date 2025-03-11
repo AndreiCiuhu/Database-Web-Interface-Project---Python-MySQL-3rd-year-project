@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Student</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Add New Student</h1>
+        <a href="{{ url_for('manage_students') }}" class="dashboard-btn">Back to Students</a>
+    </header>
+    <div class="container">
+        <div class="content">
+            <h2 class="section-title">Enter Student Details</h2>
+            <form action="{{ url_for('add_student') }}" method="POST" class="form">
+                <div class="form-group">
+                    <label for="firstname">First Name</label>
+                    <input 
+                        type="text" 
+                        id="firstname" 
+                        name="firstname" 
+                        placeholder="Enter first name" 
+                        value="{{ form_data.get('firstname', '') }}" 
+                        required>
+                    {% if errors.firstname %}
+                        <p class="error">{{ errors.firstname }}</p>
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    <label for="lastname">Last Name</label>
+                    <input 
+                        type="text" 
+                        id="lastname" 
+                        name="lastname" 
+                        placeholder="Enter last name" 
+                        value="{{ form_data.get('lastname', '') }}" 
+                        required>
+                    {% if errors.lastname %}
+                        <p class="error">{{ errors.lastname }}</p>
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    <label for="currentyear">Current Year</label>
+                    <input 
+                        type="number" 
+                        id="currentyear" 
+                        name="currentyear" 
+                        placeholder="Enter current year" 
+                        min="1" max="4" 
+                        value="{{ form_data.get('currentyear', '') }}" 
+                        required>
+                    {% if errors.currentyear %}
+                        <p class="error">{{ errors.currentyear }}</p>
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    <label for="series">Series</label>
+                    <input 
+                        type="text" 
+                        id="series" 
+                        name="series" 
+                        placeholder="Enter series (A, B, C...)" 
+                        maxlength="1" 
+                        value="{{ form_data.get('series', '') }}" 
+                        required>
+                    {% if errors.series %}
+                        <p class="error">{{ errors.series }}</p>
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    <label for="groupnr">Group</label>
+                    <input 
+                        type="number" 
+                        id="groupnr" 
+                        name="groupnr" 
+                        placeholder="Enter group number" 
+                        min="1" 
+                        value="{{ form_data.get('groupnr', '') }}" 
+                        required>
+                    {% if errors.groupnr %}
+                        <p class="error">{{ errors.groupnr }}</p>
+                    {% endif %}
+                </div>
+                <button type="submit" class="button">Add Student</button>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 Student & Course Management System. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Student</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Edit Student</h1>
+        <a href="{{ url_for('manage_students') }}" class="dashboard-btn">Back to Students</a>
+    </header>
+    <div class="container">
+        <div class="content">
+            <h2 class="section-title">Update Student Details</h2>
+            <form action="{{ url_for('edit_student', student_id=student.studentid) }}" method="POST" class="form">
+                <div class="form-group">
+                    <label for="firstname">First Name</label>
+                    <input 
+                        type="text" 
+                        id="firstname" 
+                        name="firstname" 
+                        value="{{ student.firstname }}" 
+                        required>
+                    {% if errors.firstname %}
+                        <p class="error">{{ errors.firstname }}</p>
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    <label for="lastname">Last Name</label>
+                    <input 
+                        type="text" 
+                        id="lastname" 
+                        name="lastname" 
+                        value="{{ student.lastname }}" 
+                        required>
+                    {% if errors.lastname %}
+                        <p class="error">{{ errors.lastname }}</p>
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    <label for="currentyear">Current Year</label>
+                    <input 
+                        type="number" 
+                        id="currentyear" 
+                        name="currentyear" 
+                        min="1" max="4" 
+                        value="{{ student.currentyear }}" 
+                        required>
+                    {% if errors.currentyear %}
+                        <p class="error">{{ errors.currentyear }}</p>
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    <label for="series">Series</label>
+                    <input 
+                        type="text" 
+                        id="series" 
+                        name="series" 
+                        maxlength="1" 
+                        value="{{ student.series }}" 
+                        required>
+                    {% if errors.series %}
+                        <p class="error">{{ errors.series }}</p>
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    <label for="groupnr">Group</label>
+                    <input 
+                        type="number" 
+                        id="groupnr" 
+                        name="groupnr" 
+                        min="1" 
+                        value="{{ student.groupnr }}" 
+                        required>
+                    {% if errors.groupnr %}
+                        <p class="error">{{ errors.groupnr }}</p>
+                    {% endif %}
+                </div>
+                <button type="submit" class="button">Save Changes</button>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 Student & Course Management System. All rights reserved.</p>
+    </footer>
+</body>
+</html>

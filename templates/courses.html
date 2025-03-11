@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Courses</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Manage Courses</h1>
+        <a href="{{ url_for('index') }}" class="dashboard-btn">Dashboard</a>
+    </header>
+    <div class="container">
+        <div class="content">
+            <h2 class="section-title">Course List</h2>
+            <a href="{{ url_for('add_course') }}" class="button">Add New Course</a>
+            <form action="{{ url_for('delete_courses') }}" method="POST">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Select</th>
+                            <th>Course ID</th>
+                            <th>Course Name</th>
+                            <th>Credits</th>
+                            <th>Course Type</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if courses %}
+                            {% for course in courses %}
+                            <tr>
+                                <td><input type="checkbox" name="course_ids" value="{{ course.courseid }}"></td>
+                                <td>{{ course.courseid }}</td>
+                                <td>{{ course.coursename }}</td>
+                                <td>{{ course.credits }}</td>
+                                <td>{{ course.coursetype }}</td>
+                                <td>
+                                    <a href="{{ url_for('edit_course', courseid=course.courseid) }}" class="edit-link">Edit</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr>
+                                <td colspan="6" class="text-center">No courses found.</td>
+                            </tr>
+                        {% endif %}
+                    </tbody>
+                    
+                </table>
+                <button type="submit" class="delete-btn">Delete Selected</button>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 Student & Course Management System. All rights reserved.</p>
+    </footer>
+</body>
+</html>

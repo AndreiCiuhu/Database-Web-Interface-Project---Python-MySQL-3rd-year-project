@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Student & Course Management</h1>
+    </header>
+    <div class="container">
+        <div class="content">
+            <h2 class="section-title">What would you like to manage?</h2>
+            <nav>
+                <a href="{{ url_for('manage_students') }}" class="button">Manage Students</a>
+                <a href="{{ url_for('manage_courses') }}" class="button">Manage Courses</a>
+                <a href="{{ url_for('manage_enrollments') }}" class="button">Manage Enrollments</a>
+            </nav>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 Student & Course Management System. All rights reserved.</p>
+    </footer>
+</body>
+</html>
