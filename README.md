@@ -1,7 +1,7 @@
 # Interfață Web pentru Gestiunea Studenților și Cursurilor
 
 ## Descriere
-Proiectul constă într-o aplicație web dezvoltată pentru gestionarea eficientă a informațiilor legate de studenți, cursuri și înscrierile acestora. Interfața permite efectuarea operațiilor CRUD (Creare, Citire, Actualizare, Ștergere), facilitând gestionarea interactivă a unei baze de date relaționale realizată în MySQL.
+Proiectul reprezintă o aplicație web implementată în Python, destinată gestionării eficiente a informațiilor legate de studenți, cursuri și înscrieri. Această aplicație permite utilizatorilor să efectueze operații CRUD (Creare, Citire, Actualizare, Ștergere) asupra unei baze de date relaționale MySQL.
 
 ## Funcționalități principale
 - Vizualizare, adăugare, editare și ștergere informații despre studenți, cursuri și înscrieri
@@ -28,37 +28,12 @@ Interfața web a fost realizată utilizând Flask pentru gestionarea interacțiu
 3. Implementarea paginilor web și operațiilor CRUD folosind Flask, HTML și CSS
 4. Adăugarea validărilor și gestionarea erorilor în aplicație
 
-## Instalare și rulare
-1. Clonează repository-ul:
-```bash
-git clone https://github.com/user/student-course-management.git
-```
-
-2. Instalează dependențele necesare:
-```bash
-pip install -r requirements.txt
-```
-
-3. Configurează baza de date MySQL:
-- Creează baza de date utilizând scriptul SQL furnizat (`edu_track.sql`).
-- Actualizează configurația aplicației Flask cu detaliile conexiunii MySQL.
-
-4. Rulează aplicația Flask:
-```bash
-python app.py
-```
-
-5. Accesează aplicația din browser la adresa:
-```
-http://localhost:5000
-```
-
 ---
 
 # Web Interface for Student and Course Management
 
 ## Description
-This project is a web application designed for efficient management of student, course, and enrollment data. The interface allows CRUD operations (Create, Read, Update, Delete), providing an interactive management experience with a MySQL relational database.
+This project is a web-based application developed to efficiently manage student, course, and enrollment data using Python and a relational MySQL database. It provides a user-friendly interface for CRUD operations.
 
 ## Main Features
 - Viewing, adding, editing, and deleting student, course, and enrollment records
@@ -84,29 +59,4 @@ The web interface was developed using Flask to manage interactions between the u
 2. Flask application development for database connectivity and management
 3. Web pages and CRUD operations implementation using Flask, HTML, and CSS
 4. Implementation of input validation and comprehensive error handling
-
-## Installation and Running
-1. Clone the repository:
-```bash
-git clone https://github.com/user/student-course-management.git
-```
-
-2. Install the necessary dependencies:
-```bash
-pip install -r requirements.txt
-```
-
-3. Configure the MySQL database:
-- Create the database using the provided SQL script (`edu_track.sql`).
-- Update the Flask application configuration with your MySQL connection details.
-
-4. Run the Flask application:
-```bash
-python app.py
-```
-
-5. Access the application via browser at:
-```
-http://localhost:5000
-```
 
